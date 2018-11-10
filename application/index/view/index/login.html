@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table  align="center">
+        <form action="login_all" method="post">
+            <tr align="center"><td colspan="3"><h2>用户登陆</h2></td></tr>
+            <tr>
+                <td><laber>用户名</laber></td>
+                <td><input type="text"name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td><laber>密码</laber></td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td><laber>验证码</laber></td>
+                <td><input type="text" name="yzm" id="yzm"></td>
+                <td rowspan="3"><img width="150px" src="{:captcha_src()}" onclick="this.src='{:captcha_src()}?'+Math.random()" alt="captcha" id="captcha_img" onclick="refreshVerifr()"><a
+                        href="javascript:refreshVerifr()">看不清,换一张</a></td>
+            </tr>
+            <tr align="center">
+                <td><input type="submit" value="登陆"></td>
+                <td><input type="reset" value="取消"></td>
+            </tr>
+        </form>
+    </table>
+    <script src="/static/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        function refreshVerifr(){
+            var ts = Date.parse(new Date());
+            var tp = Math.random();
+            $('#captcha_img').attr('src','/captcha?id='+tp);
+        }
+    </script>
+</body>
+</html>

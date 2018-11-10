@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<body>
+<form method="post" action="update_all">
+    <input type="text" required="required" placeholder="用户名" name="name" value="{$data['name']}"></br>
+    <input type="password" required="required" placeholder="密码" name="password"></br>
+    <input type="text" hidden="false" name="id" value="{$data['id']}"></br>
+    <button class="but" type="submit">提交</button>
+</form>
+</body>
+</html>

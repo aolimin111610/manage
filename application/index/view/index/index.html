@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理页面</title>
+</head>
+<body>
+    <table border="1" align="center">
+        <caption>用户管理</caption>
+        <h3 style="text-align: center"><a href="index/index/login_out">退出登陆</a></h3>
+        <thead>
+        <tr style="background: #999999">
+            <th>ID</th>
+            <th>用户名</th>
+            <th>登陆时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+             {volist name="data" id="vo"}
+               <tr>
+                   <td>{$vo.id}</td>
+                   <td>{$vo.name}</td>
+                   <td>{$vo.loginTime|date="Y年m月d日 H:i:s",###}</td>
+                   <td><a href="index/index/add">添加</a>&nbsp;<a href="index/index/update?id={$vo.id}">修改</a>|<a href="index/index/delete?id={$vo.id}">删除</a></td>
+               </tr>
+             {/volist}
+        </tbody>
+    </table>
+</body>
+</html>
